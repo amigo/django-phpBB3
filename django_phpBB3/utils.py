@@ -26,10 +26,14 @@ EMOTICON_RE = (
      r' \1 '
 )
 URL_RE = (
-    re.compile(r' ?<!-- [m|w|l] --><a class="postlink[-local]" href="([^"]*)">(.*?)</a><!-- [m|w|l] --> ?', re.S),
+    re.compile(r' ?<!-- [m|w] --><a class="postlink" href="([^"]*)">(.*?)</a><!-- [m|w] --> ?', re.S),
     r' [url=\1]\2[/url] '
 )
-BBCODE_REPLACES = (EMAIL_RE, EMOTICON_RE, URL_RE)
+LOCAL_URL_RE = (
+    re.compile(r' ?<!-- l --><a class="postlink-local" href="([^"]*)">(.*?)</a><!-- l --> ?', re.S),
+    r' [url=\1]\2[/url] '
+)
+BBCODE_REPLACES = (EMAIL_RE, EMOTICON_RE, URL_RE, LOCAL_URL_RE)
 
 
 ENTITIES_REGEX = re.compile(
