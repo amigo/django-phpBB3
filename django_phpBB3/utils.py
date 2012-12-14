@@ -26,7 +26,7 @@ EMOTICON_RE = (
      r' \1 '
 )
 URL_RE = (
-    re.compile(r' ?<!-- [m|w] --><a class="postlink" href="([^"]*)">(.*?)</a><!-- [m|w] --> ?', re.S),
+    re.compile(r' ?<!-- [m|w|l] --><a class="postlink" href="([^"]*)">(.*?)</a><!-- [m|w|l] --> ?', re.S),
     r' [url=\1]\2[/url] '
 )
 BBCODE_REPLACES = (EMAIL_RE, EMOTICON_RE, URL_RE)
